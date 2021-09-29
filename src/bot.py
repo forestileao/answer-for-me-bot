@@ -53,7 +53,14 @@ class AnswerBot():
                 currentSolution = f"<h1>{ex['name']}</h1>"
 
                 self.baseRequest["variables"]["id"] = ex["id"]
-                response = self.session.post(self.baseUrl, data=json.dumps(self.baseRequest), allow_redirects=True)
+                ok = False
+                response = None
+                while not ok:
+                    try:
+                        response = self.session.post(self.baseUrl, data=json.dumps(self.baseRequest), allow_redirects=True)
+                        ok = True
+                    except:
+                        pass
 
                 if (response.status_code == 200):
                     exercise = json.loads(response.content.decode('utf-8'))["data"]["bookExercise"]
