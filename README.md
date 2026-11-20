@@ -1,4 +1,4 @@
-# Answer For Me Bot
+# Answer Harvester: Book Exercise Answer Bot
 
 ## Overview
 Answer For Me Bot fetches exercises and their solutions for a given book from a GraphQL API and writes them to an HTML file. It loads runtime options from src/options.json and appends the aggregated output to book.html next to the entrypoint.
